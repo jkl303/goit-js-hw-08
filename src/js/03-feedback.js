@@ -15,6 +15,9 @@ if (localStorage.getItem(STG_KEY)) {
 form.addEventListener("submit", onSubmit);
 function onSubmit(e) {
     e.preventDefault();
+    if (email.value === '' || message.value === '') {
+        alert('Type something!')
+    } else {
     const parsed = JSON.parse(localStorage.getItem(STG_KEY));
     if (parsed) {
         console.log(parsed);
@@ -22,4 +25,5 @@ function onSubmit(e) {
     email.value = '';
     message.value = '';
     localStorage.clear();
+}
 }
